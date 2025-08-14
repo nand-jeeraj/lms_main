@@ -70,7 +70,6 @@ def dashboard():
         return jsonify({"detail": str(e)}), 500
 
 
-
 @dashboard_router.route("/attendance_history", methods=["GET"])
 def history():
     try:

@@ -16,6 +16,7 @@ upload_router = Blueprint("upload", __name__, url_prefix="/api")
 def upload():
     try:
         current_user = get_current_user()
+        print("Current user object:", current_user)
 
         if not current_user:
             return jsonify({"error": "Unauthorized"}), 401

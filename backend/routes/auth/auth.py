@@ -45,9 +45,12 @@ def register():
     if role not in ["Student", "faculty"]:
         return jsonify({'error': 'Invalid role specified'}), 400
     
-    if not (admissionyear.isdigit() and len(admissionyear) == 4):
-        return jsonify({'error': 'Admission year must be a valid 4-digit year'}), 400
-    
+    if role == "Student":
+        if not admissionyear or not (admissionyear.isdigit() and len(admissionyear) == 4):
+            return jsonify({'error': 'Admission year must be a valid 4-digit year'}), 400
+    else:
+        # For faculty, set admissionyear to None or a default value
+        admissionyear = None
     if not colid_raw.isdigit():
         return jsonify({'error': 'College ID must be a numeric value'}), 400
 
