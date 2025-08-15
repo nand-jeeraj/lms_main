@@ -11,7 +11,6 @@ from routes.auth.face_login import router as face_login_router
 from difflib import SequenceMatcher
 from flask_login import LoginManager
 from routes.auth.user import DummyUser
-from routes.profile.profile import router as profile_router
 import os
 
 app = Flask(__name__)
@@ -43,7 +42,6 @@ app.register_blueprint(upload.router)
 app.register_blueprint(dashboard.router)
 app.register_blueprint(auth_router)
 app.register_blueprint(face_login_router)
-app.register_blueprint(profile_router)
 
 @app.route("/", methods=["GET"])
 def root():

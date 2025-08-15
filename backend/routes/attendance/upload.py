@@ -71,10 +71,18 @@ def upload():
                     "course": student.get("course", "UNKNOWN"),
                     "coursecode": student.get("coursecode", "UNKNOWN"),
                     "faculty": current_user.get("name", "UNKNOWN"),     
-                    "Student_regno": student.get("Student_regno", "UNKNOWN"),
                     "period": "",                                 
-                    "attendance": 1
-
+                    "attendance": 1,
+                    "user": student.get("user", "UNKNOWN"),
+                    "classid": student.get("classid", "UNKNOWN"),
+                    "student": student.get("student", "UNKNOWN"),
+                    "regno": student.get("regno", "UNKNOWN"),
+                    "att": student.get("att", "UNKNOWN"),
+                    "classdate": datetime.utcnow().strftime("%Y-%m-%d"),
+                    "semester": student.get("semester", "UNKNOWN"),
+                    "section": student.get("section", "UNKNOWN"),
+                    "status1":student.get("status1", "UNKNOWN"),
+                    "comments": student.get("comments", "UNKNOWN"),
                 }
 
                 
