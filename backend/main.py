@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from routes.quizassign import (quizzes, assignments, evaluation, submission, generate_questions, explain_answers, forms)
 from routes.social import (discussions, announcements, feedback, meetings, ratings, users)
-from routes.attendance import (dashboard, upload)
+from routes.attendance import (upload)
 from routes.quizassign.assignment_fetch import router as assignment_fetch_router
 from routes.quizassign.faculty_view import router as Faculty_router
 from routes.quizassign.student_view import router as Student_router
@@ -39,7 +39,6 @@ app.register_blueprint(ratings.router)
 app.register_blueprint(users.router)
 app.register_blueprint(forms.router)
 app.register_blueprint(upload.router)
-app.register_blueprint(dashboard.router)
 app.register_blueprint(auth_router)
 app.register_blueprint(face_login_router)
 

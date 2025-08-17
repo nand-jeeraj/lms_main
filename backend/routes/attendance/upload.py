@@ -103,40 +103,5 @@ def upload():
         }), 500
 
 
-@upload_router.route("/student_attendance_summary", methods=["GET"])
-def student_attendance_summary():
-    try:
-        student_name = request.args.get("name")
-        colid = request.args.get("colid")
-        program_code = request.args.get("program_code")
-        year = request.args.get("year")
-
-        if not (student_name and colid and program_code and year):
-            return jsonify({"error": "Missing required parameters"}), 400
-
-        
-        present_count = db.attendance.count_documents({
-            "name": student_name,
-            "colid": colid,
-            "programcode": program_code,
-            "admissionyear": year
-        })
-
-      
-        total_sessions = db.uploaded_photos.count_documents({
-            "colid": colid,
-            "programcode": program_code,
-            "year": year
-        })
-
-        return jsonify({
-            "present": present_count,
-            "total": total_sessions
-        }), 200
-
-    except Exception as e:
-        traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
-
 
 router = upload_router
